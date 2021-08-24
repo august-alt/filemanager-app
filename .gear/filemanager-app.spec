@@ -34,8 +34,8 @@ Headers for nemodirmodel library.
 
 %install
 cd BUILD
-mkdir -p %{buildroot}/%_libdir/%name
-install -m 644 libnemofolderlistmodel.so %{buildroot}/%_libdir/%name/
+mkdir -p %{buildroot}/%_libdir/
+install -m 644 libnemofolderlistmodel.so %{buildroot}/%_libdir/
 
 mkdir -p %{buildroot}/%_includedir/%name
 cd %{_builddir}/%name-%version
@@ -48,14 +48,14 @@ includedir=%_includedir
 libdir=%_libdir
 
 Name: %name
-Description: %description
+Description: Library that provides remote and local directory and file models for Qt applications.
 Version: %version-%release
 Cflags: -I%_includedir/%name
 Libs: -L%_libdir -l%name
 __EOF
 
 %files
-%_libdir/%name/libnemofolderlistmodel.so
+%_libdir/libnemofolderlistmodel.so
 
 %files -n %name-devel
 %_includedir/%name/*.h
