@@ -1,3 +1,21 @@
+project(com.ubuntu.filemanager C CXX)
+cmake_minimum_required(VERSION 2.8.9)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-permissive -pedantic -Wall -Wextra -fPIC")
+
+ADD_DEFINITIONS(-DDO_NOT_USE_TAG_LIB)
+
+include(FindPkgConfig)
+find_package(Qt5Core)
+find_package(Qt5Qml)
+find_package(Qt5Quick)
+find_package(Qt5Widgets)
+
+# Standard install paths
+include(GNUInstallDirs)
+
+
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     disk
