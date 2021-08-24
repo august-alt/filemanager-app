@@ -43,7 +43,7 @@ rm -rf BUILD
 find . -name '*.h' -print | grep -v test | grep -v qsambaclient |cpio -pavd %{buildroot}/%_includedir/%name/
 
 mkdir -p %{buildroot}/%_pkgconfigdir
-cat >"%_pkgconfigdir/%name.pc" <<-__EOF
+cat >"%{buildroot}/%_pkgconfigdir/%name.pc" <<-__EOF
 includedir=%_includedir
 libdir=%_libdir
 
