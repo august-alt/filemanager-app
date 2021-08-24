@@ -42,6 +42,17 @@ cd %{_builddir}/%name-%version
 rm -rf BUILD
 find . -name '*.h' -print | grep -v test | grep -v qsambaclient |cpio -pavd %{buildroot}/%_includedir/%name/
 
+cat >"%_pkgconfigdir/%name.pc" <<-__EOF
+includedir=%_includedir
+libdir=%_libdir
+
+Name: %name
+Description: %description
+Version: %version-%release
+Cflags: -I%_includedir/%name
+Libs: -L%_libdir -l%name
+__EOF
+
 %files
 %_libdir/%name/libnemofolderlistmodel.so
 
@@ -51,7 +62,7 @@ find . -name '*.h' -print | grep -v test | grep -v qsambaclient |cpio -pavd %{bu
 %_includedir/%name/net/*.h
 %_includedir/%name/smb/*.h
 %_includedir/%name/trash/*.h
-
+%_pkgconfigdir/%name.pc
 
 %changelog
 * Tue Aug 24 2021 Vladimir Rubanov <august@altlinux.org> 0.1.0-alt1
