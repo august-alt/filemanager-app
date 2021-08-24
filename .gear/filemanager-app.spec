@@ -6,7 +6,7 @@ Release: alt1
 
 Summary: Library that provides remote and local directory and file models for Qt applications.
 License: BSD-3-Clause and LGPLv3+ and GPLv3+
-Group: Development
+Group: Development/C++
 Url: https://github.com/august-alt/filemanager-app
 
 BuildRequires: cmake rpm-build
