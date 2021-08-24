@@ -1,0 +1,2 @@
+spec: .gear/filemanager-app.spec
+tar: src/plugin/folderlistmodel name=@name@-@version@
