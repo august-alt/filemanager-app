@@ -34,16 +34,16 @@ Headers for nemodirmodel library.
 
 %install
 cd BUILD
-mkdir -p %{buildroot}/%_libdir/
-install -m 644 libnemofolderlistmodel.so %{buildroot}/%_libdir/
+mkdir -p %buildroot/%_libdir/
+install -m 644 libnemofolderlistmodel.so %buildroot/%_libdir/
 
-mkdir -p %{buildroot}/%_includedir/%name
+mkdir -p %buildroot/%_includedir/%name
 cd %{_builddir}/%name-%version
 rm -rf BUILD
-find . -name '*.h' -print | grep -v test | grep -v qsambaclient |cpio -pavd %{buildroot}/%_includedir/%name/
+find . -name '*.h' -print | grep -v test | grep -v qsambaclient |cpio -pavd %buildroot/%_includedir/%name/
 
-mkdir -p %{buildroot}/%_pkgconfigdir
-cat >"%{buildroot}/%_pkgconfigdir/%name.pc" <<-__EOF
+mkdir -p %buildroot/%_pkgconfigdir
+cat >"%buildroot/%_pkgconfigdir/%name.pc" <<-__EOF
 includedir=%_includedir
 libdir=%_libdir
 
