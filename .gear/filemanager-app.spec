@@ -51,7 +51,7 @@ Name: %name
 Description: Library that provides remote and local directory and file models for Qt applications.
 Version: %version-%release
 Cflags: -I%_includedir/%name
-Libs: -L%_libdir -l%name
+Libs: -L%_libdir -lnemofolderlistmodel
 __EOF
 
 %files
