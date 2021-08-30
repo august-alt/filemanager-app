@@ -41,6 +41,8 @@ mkdir -p %buildroot/%_includedir/%name
 cd %{_builddir}/%name-%version
 rm -rf BUILD
 find . -name '*.h' -print | grep -v test | grep -v qsambaclient |cpio -pavd %buildroot/%_includedir/%name/
+mkdir %buildroot/%_includedir/%name/qsambaclient
+cp src/plugin/folderlistmodel/smb/qsambaclient/src/*.h %buildroot/%_includedir/%name/qsambaclient/
 
 mkdir -p %buildroot/%_pkgconfigdir
 cat >"%buildroot/%_pkgconfigdir/%name.pc" <<-__EOF
@@ -63,6 +65,7 @@ __EOF
 %_includedir/%name/net/*.h
 %_includedir/%name/smb/*.h
 %_includedir/%name/trash/*.h
+%_includedir/%name/qsambaclient/*.h
 %_pkgconfigdir/%name.pc
 
 %changelog
