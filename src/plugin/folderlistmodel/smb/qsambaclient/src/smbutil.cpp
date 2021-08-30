@@ -211,8 +211,10 @@ Smb::Context SmbUtil::createContext()
     Smb::Context ctx = smbc_new_context();
     if (ctx)
     {
-        smbc_setDebug(ctx, SMB_DEBUG_LEVEL);                 
-        smbc_setFunctionAuthData(ctx, m_authCallBack);
+        smbc_setDebug(ctx, SMB_DEBUG_LEVEL);
+        smbc_setOptionUseKerberos(ctx, true);
+        smbc_setOptionFallbackAfterKerberos(ctx, true);
+	smbc_setFunctionAuthData(ctx, m_authCallBack);
         if (smbc_init_context(ctx) == NULL)
         {
             smbc_free_context(ctx, 1);
