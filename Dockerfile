@@ -1,6 +1,9 @@
 # Container image that runs your code
 FROM alt:p9
 
+ARG USER_ID
+ARG GROUP_ID
+
 RUN apt-get update \
     && apt-get install -y git \
     gear \
@@ -18,7 +21,8 @@ RUN apt-get update \
     apt-repo-tools \
     sudo \
     && export CURRENT_PWD=`pwd` \
-    && useradd -ms /bin/bash builder2 \
+    && groupadd --gid $GROUP_ID builder2 \
+    && useradd --uid $USER_ID --gid $GROUP_ID -ms /bin/bash builder2 \
     && groupadd sudo \
     && usermod -aG rpm builder2 \
     && usermod -aG sudo root \
