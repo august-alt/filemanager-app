@@ -1,3 +1,4 @@
+%define _cmake__builddir BUILD
 %define _unpackaged_files_terminate_build 1
 
 Name: libnemofolderlistmodel
@@ -33,13 +34,13 @@ Headers for nemodirmodel library.
 %cmake_build
 
 %install
-cd BUILD
+cd %_cmake__builddir
 mkdir -p %buildroot/%_libdir/
 install -m 644 libnemofolderlistmodel.so %buildroot/%_libdir/
 
 mkdir -p %buildroot/%_includedir/%name
 cd %{_builddir}/%name-%version
-rm -rf BUILD
+rm -rf %_cmake__builddir
 find . -name '*.h' -print | grep -v test | grep -v qsambaclient |cpio -pavd %buildroot/%_includedir/%name/
 mkdir %buildroot/%_includedir/%name/qsambaclient
 cp smb/qsambaclient/src/*.h %buildroot/%_includedir/%name/qsambaclient/

@@ -1,5 +1,7 @@
 # Container image that runs your code
-FROM alt:p9
+ARG DISTR
+
+FROM $DISTR
 
 ARG USER_ID
 ARG GROUP_ID
