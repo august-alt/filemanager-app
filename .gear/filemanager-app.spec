@@ -1,5 +1,6 @@
 %define _cmake__builddir BUILD
 %define _unpackaged_files_terminate_build 1
+%define _pkgconfigdir %{_libdir}/pkgconfig 
 
 Name: libnemofolderlistmodel
 Version: 0.1.0
